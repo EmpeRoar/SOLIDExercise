@@ -2,43 +2,7 @@
 
 namespace OCP
 {
-    public interface IFace
-    {
-        ITurtleState Execute(ITurtleState turtle);
-    }
-
-    public class North : IFace
-    {
-        public ITurtleState Execute(ITurtleState turtle)
-        {
-            throw new NotImplementedException();
-        }
-    }
-    public class South : IFace
-    {
-        public ITurtleState Execute(ITurtleState turtle)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class East : IFace
-    {
-        public ITurtleState Execute(ITurtleState turtle)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class West : IFace
-    {
-        public ITurtleState Execute(ITurtleState turtle)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-
+    
 
     public interface ICommand
     {
@@ -131,6 +95,7 @@ namespace OCP
             turtle.Execute(new Move());
             turtle.Execute(new Move());
             turtle.Execute(new Move());
+            turtle.Execute(new Left());
             turtle.Execute(new Move());
             turtle.Execute(new Back());
             turtle.Execute(new Report());
