@@ -7,13 +7,13 @@ namespace Payroll.models.calculations
 {
     public class HolidayCalculation : ICalculation
     {
-        public Func<decimal, decimal> Formula
+        public Func<IEmployee, decimal> Formula
         {
             get
             {
-                return (salary) =>
+                return (employee) =>
                 {
-                    return salary * 10;
+                    return employee.CurrentSalary * 2;
                 };
             }
         }

@@ -6,6 +6,6 @@ namespace Payroll.interfaces
 {
     public interface ICalculation
     {
-        Func<decimal, decimal> Formula { get; }
+        Func<IEmployee, decimal> Formula { get; }
     }
 }

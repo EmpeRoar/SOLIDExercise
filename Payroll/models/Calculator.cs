@@ -7,10 +7,10 @@ namespace Payroll.models
 {
     public class Calculator : ICalculator
     {
-        public decimal Execute(decimal salary, ICalculation calculation)
+        public decimal Execute(IEmployee employee, ICalculation calculation)
         {
-            Func<decimal, decimal> calculate = calculation.Formula;
-            return calculate(salary);
+            Func<IEmployee, decimal> calculate = calculation.Formula;
+            return calculate(employee);
         }
 
     }

@@ -6,6 +6,6 @@ namespace Payroll.interfaces
 {
     public interface ICalculator
     {
-        decimal Execute(decimal salary, ICalculation calculation);
+        decimal Execute(IEmployee employee, ICalculation calculation);
     }
 }
