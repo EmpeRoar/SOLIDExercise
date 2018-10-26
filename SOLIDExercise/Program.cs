@@ -1,104 +1,41 @@
-﻿using System;
+﻿using OCP.models;
+using OCP.models.commands;
+using OCP.models.faces;
+using System;
 
 namespace OCP
 {
-    
-
-    public interface ICommand
-    {
-        ITurtleState Execute(ITurtleState turtle);
-    }
-
-    public class Move : ICommand
-    {
-        public ITurtleState Execute(ITurtleState turtleState)
-        {
-            turtleState.Xpos++;
-            return turtleState;
-        }
-    }
-
-    public class Back : ICommand
-    {
-        public ITurtleState Execute(ITurtleState turtleState)
-        {
-            turtleState.Xpos--;
-            return turtleState;
-        }
-    }
-
-    public class Left : ICommand
-    {
-        public ITurtleState Execute(ITurtleState turtleState)
-        {
-            return turtleState;
-        }
-    }
-
-    public class Right : ICommand
-    {
-        public ITurtleState Execute(ITurtleState turtleState)
-        {
-            return turtleState;
-        }
-    }
-
-    public class Report : ICommand
-    {
-        public ITurtleState Execute(ITurtleState turtleState)
-        {
-            Console.WriteLine($"Report: {turtleState.Xpos} {turtleState.Ypos}");
-            return turtleState;
-        }
-    }
-
-    public interface ITurtleState
-    {
-        int Xpos { get; set; }
-        int Ypos { get; set; }
-        string Facing { get; set; }
-    }
-
-    public interface ITurtle
-    {
-        void Execute(ICommand command);
-    }
-
-    public class TurtleState : ITurtleState
-    {
-        public int Xpos { get; set; }
-        public int Ypos { get; set; }
-        public string Facing { get; set; }
-    }
-
-    public class Turtle : ITurtle
-    {
-        public ITurtleState _turtleState;
-
-        public Turtle(ITurtleState turtleState)
-        {
-            _turtleState = turtleState;
-        }
-        
-        public void Execute(ICommand command)
-        {
-            _turtleState = command.Execute(_turtleState);
-        }
-    }
-
 
     class Program
     {
         static void Main(string[] args)
         {
-            var turtle = new Turtle(new TurtleState() { Xpos = 0, Ypos = 0 });
+            var north = new North();
+            var south = new South();
+            var east = new East();
+            var west = new West();
+
+            north.Left = west;
+            north.Right = east;
+            east.Left = north;
+            east.Right = south;
+            south.Left = east;
+            south.Right = west;
+            west.Left = north;
+            west.Right = south;
+
+
+            var turtle = new Turtle()
+            {
+                XPos = 0,
+                YPos = 0,
+                Face = north
+            };
+
+            turtle.Execute(new Place(0,0, west));
             turtle.Execute(new Move());
-            turtle.Execute(new Move());
-            turtle.Execute(new Move());
-            turtle.Execute(new Left());
-            turtle.Execute(new Move());
-            turtle.Execute(new Back());
             turtle.Execute(new Report());
+
             Console.ReadLine();
         }
     }
