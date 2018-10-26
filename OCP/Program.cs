@@ -40,10 +40,15 @@ namespace OCP
                 Face = north
             };
 
-            turtle.Execute(new Place(0,0, northEast));
+            turtle.Execute(new Place(0,0, north));
             turtle.Execute(new Move());
             turtle.Execute(new Move());
             turtle.Execute(new Move());
+            turtle.Execute(new Right());
+            turtle.Execute(new Move());
+            turtle.Execute(new Move());
+            turtle.Execute(new Move());
+            turtle.Execute(new Right());
 
             turtle.Execute(new Report());
             Console.ReadLine();
