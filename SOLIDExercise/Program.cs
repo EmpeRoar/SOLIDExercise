@@ -21,8 +21,8 @@ namespace OCP
             east.Right = south;
             south.Left = east;
             south.Right = west;
-            west.Left = north;
-            west.Right = south;
+            west.Left = south;
+            west.Right = north;
 
 
             var turtle = new Turtle()
@@ -35,8 +35,28 @@ namespace OCP
             turtle.Execute(new Place(0,0, north));
             turtle.Execute(new Move());
             turtle.Execute(new Move());
+            turtle.Execute(new Move());
+            turtle.Execute(new Move());
+            
             turtle.Execute(new Right());
             turtle.Execute(new Right());
+            turtle.Execute(new Right());
+            turtle.Execute(new Right());
+
+            turtle.Execute(new Right());
+            turtle.Execute(new Right());
+
+
+            turtle.Execute(new Move());
+            turtle.Execute(new Move());
+            turtle.Execute(new Move());
+            turtle.Execute(new Move());
+
+
+            turtle.Execute(new Right());
+            turtle.Execute(new Right());
+            
+
             turtle.Execute(new Report());
 
             Console.ReadLine();

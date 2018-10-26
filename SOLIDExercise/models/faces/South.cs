@@ -9,5 +9,17 @@ namespace OCP.models.faces
     {
         public IFace Left { get; set; }
         public IFace Right { get; set; }
+
+        public Func<ITurtle, ITurtle> Direction
+        {
+            get
+            {
+                return (turtle) =>
+                {
+                    turtle.YPos--;
+                    return turtle;
+                };
+            }
+        }
     }
 }

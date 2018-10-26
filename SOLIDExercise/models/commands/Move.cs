@@ -9,8 +9,7 @@ namespace OCP.models.commands
     {
         public ITurtle Execute(ITurtle turtle)
         {
-            turtle.XPos++;
-            turtle.YPos++;
+            turtle = turtle.Face.Direction(turtle);
             return turtle;
         }
     }
