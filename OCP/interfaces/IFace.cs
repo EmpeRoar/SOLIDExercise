@@ -6,7 +6,7 @@ namespace OCP.interfaces
 {
     public interface IFace
     {
-        Func<ITurtle, ITurtle> Direction { get; }
+        Func<ITurtle, ITurtle> Movement { get; }
         IFace Left { get; set; }
         IFace Right { get; set; }
     }

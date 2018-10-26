@@ -28,6 +28,7 @@ namespace OCP
 
             south.Left = east;
             south.Right = west;
+
             west.Left = south;
             west.Right = north;
 

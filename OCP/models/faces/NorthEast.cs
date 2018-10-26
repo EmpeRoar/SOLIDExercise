@@ -9,8 +9,8 @@ namespace OCP.models.faces
     {
         public IFace Left { get; set; }
         public IFace Right { get; set; }
-
-        public Func<ITurtle, ITurtle> Direction
+        
+        public Func<ITurtle, ITurtle> Movement
         {
             get
             {
