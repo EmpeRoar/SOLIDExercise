@@ -1,4 +1,5 @@
 ﻿using OCP.interfaces;
+using OCP.models.faces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,8 @@ namespace OCP.models.commands
     {
         public ITurtle Execute(ITurtle turtle)
         {
-            throw new NotImplementedException();
+            turtle.Face = turtle.Face.Right;
+            return turtle;
         }
     }
 }
