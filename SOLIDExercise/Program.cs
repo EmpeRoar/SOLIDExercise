@@ -11,14 +11,21 @@ namespace OCP
         static void Main(string[] args)
         {
             var north = new North();
-            var south = new South();
+            var northEast = new NorthEast();
             var east = new East();
+            var south = new South();
             var west = new West();
+
 
             north.Left = west;
             north.Right = east;
-            east.Left = north;
+
+            northEast.Left = north;
+            northEast.Right = east;
+
+            east.Left = northEast;
             east.Right = south;
+
             south.Left = east;
             south.Right = west;
             west.Left = south;
@@ -32,33 +39,12 @@ namespace OCP
                 Face = north
             };
 
-            turtle.Execute(new Place(0,0, north));
+            turtle.Execute(new Place(0,0, northEast));
             turtle.Execute(new Move());
             turtle.Execute(new Move());
             turtle.Execute(new Move());
-            turtle.Execute(new Move());
-            
-            turtle.Execute(new Right());
-            turtle.Execute(new Right());
-            turtle.Execute(new Right());
-            turtle.Execute(new Right());
-
-            turtle.Execute(new Right());
-            turtle.Execute(new Right());
-
-
-            turtle.Execute(new Move());
-            turtle.Execute(new Move());
-            turtle.Execute(new Move());
-            turtle.Execute(new Move());
-
-
-            turtle.Execute(new Right());
-            turtle.Execute(new Right());
-            
 
             turtle.Execute(new Report());
-
             Console.ReadLine();
         }
     }
