@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LSP.models;
+using System;
 
 namespace LSP
 {
@@ -6,7 +7,13 @@ namespace LSP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Animal dog = new Dog();
+            dog.Sound();
+
+            Animal cat = new Cat();
+            cat.Sound();
+
+            Console.ReadLine();
         }
     }
 }
